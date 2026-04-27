@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 function Header() {
     const path = usePathname()
+    const router = useRouter()
   return (
     <header>
               <div>{path}</div>
@@ -22,6 +23,11 @@ function Header() {
           <Link href={"/blog/settings"}>settings</Link>
         </li>
       </ul>
+      <div>
+        <br />
+        <hr />
+        <button onClick={() => router.push('/dashboard') }>going to dashboard</button>
+      </div>
     </header>
   );
 }

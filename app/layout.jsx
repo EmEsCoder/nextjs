@@ -1,14 +1,10 @@
+import Header from "@/components/Header";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <header>
-          <ul>
-            <li>dashboard</li>
-            <li>blog</li>
-            <li>settings</li>
-          </ul>
-        </header>
+      <body>  
+        <Header />
         {children}
         </body>
     </html>

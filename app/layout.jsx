@@ -1,15 +1,13 @@
-"use client";
-
-
 import Header from "@/components/Header";
-import { useEffect } from "react";
+
+export const metadata = {
+  title : "Testing project",
+  description : "this is a test"
+}
 
 export default function RootLayout({ children }) {
 
-  useEffect(()=> {
-    console.log("layout Test ....");
-    
-  },[])
+
   return (
     <html lang="en">
       <body>  

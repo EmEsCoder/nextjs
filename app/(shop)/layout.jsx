@@ -7,6 +7,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>  
         <p>this is a shop layout</p>
+        {children}
         </body>
     </html>
   );

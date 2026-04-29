@@ -7,11 +7,11 @@ export default function Header() {
         <Link href={"/"}>Home</Link>
       </li>
       <li>
-        <Link href={"/about"}>about</Link>
+        <Link href={"/movies"}>movies</Link>
       </li>
-      <li>
+      {/* <li>
         <Link href={"/products"}>products</Link>
-      </li>
+      </li> */}
     </ul>
   );
 }

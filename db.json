@@ -24,6 +24,17 @@
       "id": "5",
       "title": "Post 5",
       "body": "Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+    },
+    {
+      "title": "hi",
+      "body": "salam",
+      "id": "zssjShWvDyE"
+    },
+    {
+      "title": "sa",
+      "body": "fgg",
+      "id": "92FivjX15Ks"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

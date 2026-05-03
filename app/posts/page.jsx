@@ -1,3 +1,4 @@
+import Form from "@/components/Form";
 import sleep from "sleep-promise";
 
 async function fetchPosts () {
@@ -16,6 +17,10 @@ export default async function Posts() {
   return (
     <>
       <h1>Posts Lists</h1>
+      <br />
+      <Form />
+      <br />
+      <hr />
 
       <ul>
         {posts.map((evo) => {

@@ -15,7 +15,7 @@ export default async function Movie({ params }) {  // ✅ اضافه کردن as
     <h3>Movie Page</h3>
 
     <ul>
-        <li><Image src={movie.poster} width={200} height={200}  alt="movie"></Image></li>
+        <li><Image src={movie.poster} width={200}  height={200}  alt="movie"></Image></li>
         <li>{movie.title}</li>
         <li>{movie.writer}</li>
         <li>{movie.year}</li>

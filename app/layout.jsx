@@ -10,7 +10,6 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Header />
-        <hr />
         {children}
       </body>
     </html>

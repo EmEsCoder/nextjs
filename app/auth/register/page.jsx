@@ -1,15 +1,21 @@
-"use client"
+"use client";
 
 import { register } from "@/app/actions/auth";
-import { useActionState } from "react";
+import SubmitButton from "@/components/SubmitButton";
+import { useActionState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export default function Register() {
+  const [state, newAction] = useActionState(register, {});
 
-    const [state,newAction]=useActionState(register,{ })
-if (state?.error) {
-    console.log(state.error);
-}
-    
+useEffect(() => {
+    if (state?.error) {
+        toast.error(state.error);
+    } else if (state?.success) {
+        toast.success("Registration successful!");
+    }
+}, [state?.error, state?.success]);
+
   return (
     <div className="register-container">
       <div className="register-wrapper">
@@ -54,9 +60,7 @@ if (state?.error) {
                 id="confirmPassword"
               />
             </div>
-            <button type="submit" className="btn-register-submit">
-              Register
-            </button>
+            <SubmitButton title="register" />
           </form>
         </div>
       </div>

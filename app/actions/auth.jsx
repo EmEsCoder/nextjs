@@ -13,6 +13,7 @@ async function register(state, formData) {
     if (password !== confirmPassword) {
         return { error: "Passwords do not match!" }
     }
+    return { success: true };
     
 }
 export {register}

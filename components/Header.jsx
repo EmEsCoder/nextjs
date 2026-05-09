@@ -1,34 +1,36 @@
+import Link from "next/link";
+
 export default function Header() {
     return (
         <nav className="navbar">
             <div className="container">
-                <a href="/" className="logo">
+                <Link href="/" className="logo">
                     webprog.io
-                </a>
+                </Link>
                 <button className="menu-btn" type="button">
                     <span className="menu-icon"></span>
                 </button>
                 <div className="nav-links">
                     <ul className="nav-menu">
                         <li>
-                            <a href="/" className="nav-link active">
+                            <Link href="/" className="nav-link active">
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/posts" className="nav-link">
+                            <Link href="/posts" className="nav-link">
                                 Posts
-                            </a>
+                            </Link>
                         </li>
                     </ul>
 
                     <div className="auth-buttons">
-                        <a href="/auth/login" className="btn-login">
+                        <Link href="/auth/login" className="btn-login">
                             Login
-                        </a>
-                        <a href="/auth/register" className="btn-register">
+                        </Link>
+                        <Link href="/auth/register" className="btn-register">
                             register
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

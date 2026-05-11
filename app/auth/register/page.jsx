@@ -2,10 +2,12 @@
 
 import { register } from "@/app/actions/auth";
 import SubmitButton from "@/components/SubmitButton";
+import { useRouter } from "next/navigation";
 import { useActionState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 export default function Register() {
+    const router = useRouter();
   const [state, newAction] = useActionState(register, {});
 
 useEffect(() => {
@@ -13,8 +15,9 @@ useEffect(() => {
         toast.error(state.error);
     } else if (state?.success) {
         toast.success("Registration successful!");
+        router.push("/")
     }
-}, [state?.error, state?.success]);
+}, [state]);
 
   return (
     <div className="register-container">

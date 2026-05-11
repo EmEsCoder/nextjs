@@ -1,5 +1,7 @@
 "use server";
 
+import { cookies } from "next/headers";
+
 async function register(state, formData) {
   const name = formData.get("name");
   const email = formData.get("email");
@@ -47,4 +49,53 @@ async function register(state, formData) {
 
 
 }
-export { register };
+
+// login function
+
+async function LoginF(state, formData) {
+  const email = formData.get("email");
+  const password = formData.get("password");
+
+
+    if ( !email || !password) {
+      return { error: " email and password is required" }
+  }
+
+
+  const res = await fetch("http://localhost:8000/api/login", {
+    method: "POST",
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  });
+  const data =  await res.json();
+  if(res.ok) {
+    (await cookies()).set( {
+        name :'token',
+        value : data.token,
+        sameSite: 'strict',
+        httpOnly : true
+    })
+    return {
+        success : true
+    }
+    
+  }else  {
+    console.log(data);
+    const allErrors = Object.values(data).flat();
+    const errorMessage = allErrors.join('\n');
+        return {
+                error : errorMessage
+    }
+
+  }
+  
+
+
+}
+export { register,LoginF };

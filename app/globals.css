@@ -350,3 +350,91 @@
         font-size: 14px;
     }
 }
+
+
+/* login page */
+
+
+/* تنظیمات کلی کانتینر */
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-form-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+/* استایل فرم گروه */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* استایل لیبل‌ها */
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333333;
+    font-size: 14px;
+}
+
+/* استایل اینپوت‌ها */
+.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.form-input:hover {
+    border-color: #b3b3b3;
+}
+
+/* استایل برای نمایش موبایل */
+@media (max-width: 768px) {
+    .login-form-container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .form-input {
+        font-size: 16px; /* جلوگیری از زوم در موبایل */
+    }
+}
+
+/* حالت خطا (اختیاری) */
+.form-input.error {
+    border-color: #ff4d4f;
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 5px;
+}

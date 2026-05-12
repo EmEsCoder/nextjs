@@ -6,9 +6,12 @@ import { useContext } from "react";
 
 export default function Header() {
   const { name } = useContext(context);
-  console.log(name);
+  // console.log(name);
+  
+  
 
   return (
+    
     <nav className="navbar">
       <div className="container">
         <Link href="/" className="logo">
@@ -35,7 +38,7 @@ export default function Header() {
             {name ? (
               <>
                 <div className="user-info">
-                  <span className="user-name">{name.name}</span>
+                  <span className="user-name">{name?.name}</span>
                   <button className="logout-btn">Logout</button>
                 </div>
               </>

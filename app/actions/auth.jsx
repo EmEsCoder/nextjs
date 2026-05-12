@@ -8,13 +8,12 @@ async function register(state, formData) {
   const password = formData.get("password");
   const confirmPassword = formData.get("confirmPassword");
 
-
-    if (!name || !email || !password) {
-      return { error: "name, email and password is required" }
+  if (!name || !email || !password) {
+    return { error: "name, email and password is required" };
   }
 
   if (password !== confirmPassword) {
-      return { error: "Passwords do not match!" }
+    return { error: "Passwords do not match!" };
   }
 
   const res = await fetch("http://localhost:8000/api/register", {
@@ -30,24 +29,18 @@ async function register(state, formData) {
       c_password: confirmPassword,
     }),
   });
-  const data =  await res.json();
-  if(res.ok) {
+  const data = await res.json();
+  if (res.ok) {
     return {
-        success : true,
-    }
-    
-  }else  {
-    console.log(data);
+      success: true,
+    };
+  } else {
     const allErrors = Object.values(data).flat();
-    const errorMessage = allErrors.join('\n');
-        return {
-                error : errorMessage
-    }
-
+    const errorMessage = allErrors.join("\n");
+    return {
+      error: errorMessage,
+    };
   }
-  
-
-
 }
 
 // login function
@@ -56,11 +49,9 @@ async function LoginF(state, formData) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-
-    if ( !email || !password) {
-      return { error: " email and password is required" }
+  if (!email || !password) {
+    return { error: " email and password is required" };
   }
-
 
   const res = await fetch("http://localhost:8000/api/login", {
     method: "POST",
@@ -73,30 +64,31 @@ async function LoginF(state, formData) {
       password: password,
     }),
   });
-  const data =  await res.json();
-  if(res.ok) {
-    (await cookies()).set( {
-        name :'token',
-        value : data.token,
-        sameSite: 'strict',
-        httpOnly : true
-    })
+  const data = await res.json();
+  if (res.ok) {
+    (await cookies()).set({
+      name: "token",
+      value: data.token,
+      sameSite: "strict",
+      httpOnly: true,
+    });
     return {
-        success : true,
-        user : data.user
-    }
-    
-  }else  {
-    console.log(data);
+      success: true,
+      user: data.user,
+    };
+  } else {
     const allErrors = Object.values(data).flat();
-    const errorMessage = allErrors.join('\n');
-        return {
-                error : errorMessage
-    }
-
+    const errorMessage = allErrors.join("\n");
+    return {
+      error: errorMessage,
+    };
   }
-  
-
-
 }
-export { register,LoginF };
+
+//  async function me() {
+//   const token = await cookies().get('token');
+//   console.log(token);
+  
+// }
+
+export { register, LoginF };

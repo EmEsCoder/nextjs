@@ -33,7 +33,7 @@ async function register(state, formData) {
   const data =  await res.json();
   if(res.ok) {
     return {
-        success : true
+        success : true,
     }
     
   }else  {
@@ -82,7 +82,8 @@ async function LoginF(state, formData) {
         httpOnly : true
     })
     return {
-        success : true
+        success : true,
+        user : data.user
     }
     
   }else  {

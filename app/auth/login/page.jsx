@@ -3,13 +3,15 @@
 
 
 import { LoginF } from "@/app/actions/auth";
+import { context } from "@/app/context/authContext";
 import SubmitButton from "@/components/SubmitButton";
 import { useRouter } from "next/navigation";
-import { useActionState, useEffect } from "react";
+import { useActionState, useContext, useEffect } from "react";
 import { toast } from "react-toastify";
 
 export default function Login() {
-
+    
+    const {settingName} = useContext(context)
     const [state, newAction] = useActionState(LoginF,{})
     const router = useRouter();
 
@@ -18,6 +20,7 @@ export default function Login() {
             toast.error(state.error);
         } else if (state?.success) {
             toast.success("Registration successful!");
+            settingName(state.user)
             router.push("/")
         }
     }, [state]);

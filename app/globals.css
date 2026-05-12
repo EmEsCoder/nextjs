@@ -438,3 +438,15 @@
     font-size: 12px;
     margin-top: 5px;
 }
+
+
+/* استایل بخش کاربر لاگین شده */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

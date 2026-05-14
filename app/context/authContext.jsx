@@ -9,10 +9,13 @@ export default function FContext({ children}) {
   function settingName(name) {
     setName(name);
   }
+  function deleteName(name) {
+    setName(null);
+  }
 
 
   return (
-    <context.Provider value={{ name, settingName }}>
+    <context.Provider value={{ name, settingName,deleteName }}>
       {children}
     </context.Provider>
   );

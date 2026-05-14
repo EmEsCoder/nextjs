@@ -3,15 +3,22 @@
 import { context } from "@/app/context/authContext";
 import Link from "next/link";
 import { useContext } from "react";
+import { logout } from "./Cookies";
 
 export default function Header() {
-  const { name } = useContext(context);
+  const { name, deleteName } = useContext(context);
   // console.log(name);
-  
-  
+
+  const handleLogout = async () => {
+    const result = await logout();
+    deleteName();
+    if (result.success) {
+      console.log(result.success);
+      
+    }
+  };
 
   return (
-    
     <nav className="navbar">
       <div className="container">
         <Link href="/" className="logo">
@@ -39,7 +46,9 @@ export default function Header() {
               <>
                 <div className="user-info">
                   <span className="user-name">{name?.name}</span>
-                  <button className="logout-btn">Logout</button>
+                  <button className="logout-btn" onClick={handleLogout}>
+                    Logout
+                  </button>
                 </div>
               </>
             ) : (
